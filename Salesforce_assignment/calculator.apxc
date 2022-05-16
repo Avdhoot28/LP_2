@@ -1,0 +1,38 @@
+public class Sample2
+{
+ public Double rad {get;set;}
+ public Double len {get;set;}
+ public Double brea {get;set;}
+ public Double side {get;set;}
+ public Double result {get;set;}
+ public String func {get;set;}
+
+ public Sample2()
+ {
+ }
+
+ public void find()
+ {
+ if(func == 'areaOfCircle')
+ {
+ result = 3.14 * rad * rad;
+ }
+ else if(func == 'areaOfRectangle')
+ {
+ result = len * brea;
+ }
+ else if(func == 'areaOfSquare')
+ {
+ result = side * side;
+ }
+ else if(func == 'areaOfTriangle')
+ {
+ result = 0.5 * (len * brea);
+ }
+ }
+
+}
+
+
+
+

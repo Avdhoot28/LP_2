@@ -1,0 +1,95 @@
+<apex:page controller="Sample2">
+<apex:form >
+ <apex:pageBlock >
+ <apex:pageBlockSection >
+ <apex:pageBlockSectionItem >
+ <apex:outputLabel value="Radius"/>
+ </apex:pageBlockSectionItem>
+ <apex:pageBlockSectionItem >
+ <apex:inputText value="{!rad}"/>
+ </apex:pageBlockSectionItem>
+ <apex:pageBlockSectionItem >
+ <apex:outputLabel value="Length"/>
+ </apex:pageBlockSectionItem>
+ <apex:pageBlockSectionItem >
+ <apex:inputText value="{!len}"/>
+ </apex:pageBlockSectionItem>
+ <apex:pageBlockSectionItem >
+ <apex:outputLabel value="Breadth"/>
+ </apex:pageBlockSectionItem>
+ <apex:pageBlockSectionItem >
+ <apex:inputText value="{!brea}"/>
+ </apex:pageBlockSectionItem>
+ <apex:pageBlockSectionItem >
+ <apex:outputLabel value="Side"/>
+ </apex:pageBlockSectionItem>
+ <apex:pageBlockSectionItem >
+ <apex:inputText value="{!side}"/>
+ </apex:pageBlockSectionItem>
+ <apex:pageBlockSectionItem >
+ <apex:selectRadio value="{!func}" layout="pageDirection">
+ <apex:selectOption itemValue="areaOfCircle" itemLabel="Area of circle"/>
+ <apex:selectOption itemValue="areaOfRectangle" itemLabel="Area of Rectangle"/>
+ <apex:selectOption itemValue="areaOfSquare" itemLabel="Area of Square"/>
+ <apex:selectOption itemValue="areaOfTriangle" itemLabel="Area of Triangle"/>
+ </apex:selectRadio>
+ </apex:pageBlockSectionItem>
+ <apex:pageBlockSectionItem >
+ </apex:pageBlockSectionItem>
+ <apex:pageBlockSectionItem >
+ <apex:outputLabel value="Result"/>
+ </apex:pageBlockSectionItem>
+ <apex:pageBlockSectionItem >
+ <apex:inputText value="{!result}" id="res"/><apex:actionStatus id="sts" startText="Finding..."/>
+ </apex:pageBlockSectionItem>
+ </apex:pageBlockSection>
+ <apex:pageBlockButtons >
+ <apex:commandButton value="Find" action="{!find}" reRender="res" status="sts"/>
+ </apex:pageBlockButtons>
+ </apex:pageBlock>
+</apex:form>
+</apex:page>
+
+
+
+
+
+
+public class Sample2
+{
+ public Double rad {get;set;}
+ public Double len {get;set;}
+ public Double brea {get;set;}
+ public Double side {get;set;}
+ public Double result {get;set;}
+ public String func {get;set;}
+
+ public Sample2()
+ {
+ }
+
+ public void find()
+ {
+ if(func == 'areaOfCircle')
+ {
+ result = 3.14 * rad * rad;
+ }
+ else if(func == 'areaOfRectangle')
+ {
+ result = len * brea;
+ }
+ else if(func == 'areaOfSquare')
+ {
+ result = side * side;
+ }
+ else if(func == 'areaOfTriangle')
+ {
+ result = 0.5 * (len * brea);
+ }
+ }
+
+}
+
+
+
+
